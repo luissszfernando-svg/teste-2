@@ -1,0 +1,201 @@
+/* =========================================
+   1. VARIÁVEIS GLOBAIS (Design System)
+   Centraliza as cores para facilitar mudanças
+   ========================================= */
+:root {
+    /* Paleta de Cores Moderna */
+    --primary-color: #4f46e5;       /* Azul índigo moderno */
+    --primary-hover: #4338ca;       /* Tom mais escuro para hover */
+    --sidebar-bg: #1e1e2e;          /* Fundo escuro elegante */
+    --bg-body: #f3f4f6;             /* Cinza muito suave para o fundo */
+    --card-bg: #ffffff;             /* Branco puro para cards */
+    
+    /* Textos */
+    --text-main: #1f2937;           /* Quase preto (melhor leitura) */
+    --text-muted: #9ca3af;          /* Cinza para textos secundários */
+    
+    /* Efeitos */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 10px;                 /* Arredondamento padrão */
+    --transition: 0.3s ease;        /* Suavidade nas animações */
+}
+
+/* =========================================
+   2. RESET E CORPO
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fonte Inter ou padrão do sistema (muito mais profissional que Arial) */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    overflow: hidden; /* Evita barra de rolagem dupla */
+}
+
+/* =========================================
+   3. MENU LATERAL (SIDEBAR)
+   ========================================= */
+.sidebar {
+    width: 260px; /* Um pouco mais largo para respiro */
+    background-color: var(--sidebar-bg);
+    color: #fff;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.05);
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    flex: 1; /* Ocupa o espaço disponível */
+}
+
+.sidebar ul li {
+    margin: 8px 0;
+}
+
+.sidebar ul li a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    gap: 10px; /* Espaço se você adicionar ícones */
+}
+
+/* Efeito Hover Profissional */
+.sidebar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Transparência suave */
+    color: #fff;
+    transform: translateX(5px); /* Movimento sutil para direita */
+}
+
+/* =========================================
+   4. ÁREA PRINCIPAL
+   ========================================= */
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto; /* Permite rolar apenas o conteúdo, menu fica fixo */
+}
+
+/* =========================================
+   5. CABEÇALHO (HEADER)
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 20px 30px;
+    border-radius: var(--radius);
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-soft); /* Sombra elegante */
+}
+
+.header h1 {
+    font-size: 24px;
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info span {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.user-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary-color); /* Borda colorida no avatar */
+}
+
+/* Botão de Logout (Estilizado caso exista no HTML) */
+.btn-logout {
+    padding: 8px 16px;
+    background-color: #fee2e2;
+    color: #ef4444;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 12px;
+    transition: var(--transition);
+    margin-left: 10px;
+}
+.btn-logout:hover {
+    background-color: #fecaca;
+}
+
+/* =========================================
+   6. CARDS (GRID RESPONSIVO)
+   ========================================= */
+.cards {
+    display: grid;
+    /* Mágica da Responsividade: ajusta colunas automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Efeito ao passar o mouse no Card */
+.card:hover {
+    transform: translateY(-5px); /* Sobe levemente */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-color: #e5e7eb;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 28px; /* Número bem grande */
+    font-weight: 700;
+    color: var(--text-main);
+}

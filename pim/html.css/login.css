@@ -1,0 +1,157 @@
+/* =========================================
+   1. VARIÁVEIS GLOBAIS (Mesma do Dashboard)
+   ========================================= */
+:root {
+    --primary-color: #4f46e5;       /* Azul índigo */
+    --primary-hover: #4338ca;
+    --bg-gradient-start: #1e1e2e;   /* Fundo escuro */
+    --bg-gradient-end: #312e81;     /* Azul escuro profundo */
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --input-bg: #f9fafb;
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --radius: 12px;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* =========================================
+   2. ESTRUTURA DO CORPO
+   ========================================= */
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Gradiente mais moderno e suave */
+    background: radial-gradient(circle at center, var(--bg-gradient-end), var(--bg-gradient-start));
+    padding: 20px; /* Garante espaço nas laterais em celulares */
+}
+
+/* =========================================
+   3. CARD DE LOGIN
+   ========================================= */
+.login-container {
+    background: #fff;
+    width: 100%;
+    max-width: 400px; /* Adaptável a telas menores */
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Sombra difusa e elegante */
+    text-align: center;
+    
+    /* Animação de entrada */
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0; /* Começa invisível para animar */
+    transform: translateY(20px);
+}
+
+.login-container h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+}
+
+/* Subtítulo opcional (caso você adicione um <p> abaixo do h2 no HTML) */
+.login-container p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   4. INPUTS E LABELS
+   ========================================= */
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: var(--input-bg);
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--text-main);
+    transition: all 0.2s ease;
+}
+
+/* Efeito de Foco Profissional (Anel brilhante) */
+.input-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); /* Anel suave azul */
+}
+
+/* =========================================
+   5. BOTÃO DE LOGIN
+   ========================================= */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+}
+
+.btn-login:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px); /* Efeito tátil de botão subindo */
+    box-shadow: 0 6px 10px rgba(79, 70, 229, 0.3);
+}
+
+.btn-login:active {
+    transform: translateY(0); /* Volta ao normal ao clicar */
+}
+
+/* =========================================
+   6. LINK "ESQUECI A SENHA"
+   ========================================= */
+.forgot {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.forgot:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* =========================================
+   7. ANIMAÇÕES (Keyframes)
+   ========================================= */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

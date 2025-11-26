@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sistema Escolar</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        
+        <div class="login-header">
+            <i class="ph ph-graduation-cap"></i>
+            <h2>Acesso ao Sistema</h2>
+            <p>Digite suas credenciais para continuar.</p>
+        </div>
+
+        <form onsubmit="event.preventDefault(); login();">
+            <div class="input-group">
+                <label for="usuario">Usuário</label>
+                <input id="usuario" type="text" placeholder="admin" required autocomplete="username">
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input id="senha" type="password" placeholder="1234" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn-login">
+                <i class="ph ph-sign-in"></i> Entrar
+            </button>
+
+            <a href="#" class="forgot" onclick="esqueciSenha()">Esqueci minha senha</a>
+        </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Opcional: Verifica se já está logado para evitar que a pessoa veja a tela de login
+        if (typeof verificarLogin === 'function') verificarLogin();
+    </script>
+</body>
+</html>

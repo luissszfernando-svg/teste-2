@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Sistema Escolar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 🔐 Verificação de login e exibir nome -->
+    <script src="js/auth.js"></script>
+    <script>
+        verificarLogin();  // impede acesso sem login
+        mostrarNome();     // mostra o nome do usuário logado
+    </script>
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <h2>Escola XYZ</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Alunos</a></li>
+                <li><a href="#">Professores</a></li>
+                <li><a href="#">Turmas</a></li>
+                <li><a href="#">Financeiro</a></li>
+                <li><a href="#">Configurações</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+
+        <!-- CABEÇALHO -->
+        <header class="header">
+            <h1>Dashboard</h1>
+
+            <div class="user-info">
+                <span id="nome-usuario"></span>
+                <button onclick="logout()" class="btn-logout">Sair</button>
+            </div>
+        </header>
+
+        <!-- CARDS INFORMATIVOS -->
+        <section class="cards">
+            <div class="card">
+                <h3>Alunos</h3>
+                <p>850 matriculados</p>
+            </div>
+
+            <div class="card">
+                <h3>Professores</h3>
+                <p>45 ativos</p>
+            </div>
+
+            <div class="card">
+                <h3>Turmas</h3>
+                <p>32 em andamento</p>
+            </div>
+
+            <div class="card">
+                <h3>Financeiro</h3>
+                <p>R$ 120.000 em caixa</p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
